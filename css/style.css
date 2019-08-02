@@ -90,7 +90,7 @@ color{
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-.pts.t-azul{
+.pts.t-rojo{
   position: absolute;
   top: 45%;
   left: calc(50% - 400px);
@@ -99,7 +99,7 @@ color{
   transform: translate(-50%, -50%);
 }
 
-.pts.t-rojo{
+.pts.t-azul{
   position: absolute;
   top: 45%;
   left: calc(50% + 400px);
@@ -145,4 +145,25 @@ color{
   color: #fff;
   border-radius: 15px;
   border: 0px none;
+}
+.error{
+  color: red;
+  width: 100%;
+  font-size: 100px;
+  text-align: center;
+}
+.error > i{
+  margin: 15px 20px;
+}
+.error > i{
+  display: none;
+}
+.error.uno > i:nth-child(1){
+  display: inline-block;
+}
+.error.dos > i:nth-child(2){
+  display: inline-block;
+}
+.error.tres > i:nth-child(3){
+  display: inline-block;
 }
