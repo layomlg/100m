@@ -180,9 +180,14 @@ div.preguntas > div.pregunta{
 div.preguntas > div.pregunta:nth-child(1){
   display: block;
 }
-div.preguntas > div.pregunta:nth-child(1) img{
-  width: 400px;
+div.preguntas > div.pregunta:nth-child(1) img {
+    width: 320px;
+    padding: 20px;
+    display: block;
+    margin: 0px auto;
 }
+
+
 
 .respuesta {
   width: 100%;
