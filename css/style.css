@@ -277,6 +277,12 @@ p.pregunta {
   background: none;
   
 }
+.fase2.ocultar .col-2 input{
+  color:#000;
+  background: none;
+  
+}
+
 .col-2 input:focus{
 	outline:0px;
 }

@@ -77,6 +77,7 @@
         <button onclick="location.href='index.html';"><i class="fas fa-step-backward"></i></button>
         <button onclick="iniciar();" class="b-iniciar"><i class="fa fa-play" aria-hidden="true"></i></button>
         <button onclick="error();" class="b-mal"><i class="fa fa-times" aria-hidden="true"></i></button>
+        <button onclick="ocultar();" class="b-ocultar"><i class="fa fa-eye" aria-hidden="true"></i></button>
       </div>
       <div class="pts t-acum"><span>0</span></div>
     </div>
@@ -192,7 +193,9 @@
         }
       }
 
-
+      function ocultar() {
+        $(".fase2").toggleClass("ocultar");
+      }
       $(".open").click(function(){
         $(this).toggle();
         $(this).siblings("span").toggle();
