@@ -251,11 +251,20 @@ p.pregunta {
 .col-2{
   width: 100%;
 }
+.col-2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 .col-2 > .izq,
 .col-2 > .der{
-  width: 50%;
+  width: calc(50% - 21px);
   float: left;
   display: inline-block;
+  padding: 10px;
+}
+.col-2 > .izq{
+  border-right: 1px solid #ffc92c;
 }
 .col-2 input{
   display: inline-block;
