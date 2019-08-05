@@ -75,7 +75,7 @@ color{
 }
 .pts{
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -83,7 +83,7 @@ color{
 }
 .pts.t-acum{
   position: absolute;
-  top:calc(40% - 250px);
+  top:calc(50% - 250px);
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
