@@ -28,9 +28,8 @@ body{
   position: absolute;
   bottom: 40px;
   right: 60px;
-  height: 90px; 
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   z-index: 20;
 }
@@ -128,23 +127,25 @@ color{
 #full1{
   display: block;
   position:relative;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-color: #140064;
   color: #fff;
   border-radius: 15px;
   border: 0px none;
+  font-size: 20px;
 }
 #full2{
   display: block;
   position: relative;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   display: none;
   background-color: #140064;
   color: #fff;
   border-radius: 15px;
   border: 0px none;
+  font-size: 20px;
 }
 .error{
   color: red;
@@ -166,4 +167,75 @@ color{
 }
 .error.tres > i:nth-child(3){
   display: inline-block;
+}
+
+
+
+
+
+
+div.preguntas > div.pregunta{
+  display: none;
+}
+div.preguntas > div.pregunta:nth-child(1){
+  display: block;
+}
+div.preguntas > div.pregunta:nth-child(1) img{
+  width: 400px;
+}
+
+.respuesta {
+  width: 100%;
+}
+p.pregunta {
+  font-size: 18px;
+}
+.respuesta span:nth-child(1) {
+  display: none;
+}
+.respuesta span {
+  padding: 4 15px;
+  font-size: 20px;
+}
+
+.respuesta button{
+  color: #ffc92c;
+  font-size: 20px;
+  background: none;
+  border: 0px none;
+  padding: 4 15px;
+  cursor: pointer;
+}
+.botones{
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0px);
+  -ms-transform: translate(-50%, 0px);
+  transform: translate(-50%, 0px);
+}
+.botones button{
+  color: #fff;
+  font-size: 20px;
+  background: none;
+  border: 0px none;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.botones button{
+  background-color: #140064;
+  color: #fff;
+  font-size: 20px;
+  border: 0px none;
+  padding: 0px;
+  cursor: pointer;
+  border-radius:15px;
+  width: 40px;
+  height: 40px;
+  margin: 0px 15px;
+}
+.botones button:hover{
+  color: #140064;
+  background: #fff;
 }

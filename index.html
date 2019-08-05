@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es" >
+
+  <head>
+    <meta charset="UTF-8">
+    <title>100 Guerreros Dijeron</title>
+    <link rel="shortcut icon" href="img/favicon.png"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Saira+Extra+Condensed:700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="sonidos">
+      <audio id="inicio">
+        <source src="sounds/inicio.mp3" type="audio/mpeg">
+      </audio>
+      <audio id="respuesta">
+        <source src="sounds/respuesta.mp3" type="audio/mpeg">
+      </audio>
+      <audio id="win">
+        <source src="sounds/win.mp3" type="audio/mpeg">
+      </audio>
+      <audio id="error">
+        <source src="sounds/error.mp3" type="audio/mpeg">
+      </audio>
+
+    </div>
+    <div class="fullscreen">
+      <button id="full1" onclick="launchFullScreen(document.documentElement);"><i class="fas fa-expand-arrows-alt"></i> </button>
+      <button id="full2" onclick="cancelFullScreen();"> <i class="fas fa-expand-arrows-alt"></i> </button>
+    </div>
+
+    <!-- Inicio STANDBY -->
+    <div id="standby" class="container1">
+      <img class="logo-100" src="./img/DIJERON.png">
+    </div>
+    <!-- Fin STANDBY -->
+    <div class="container">
+      <div class="logos">
+        <img class="logo izq" src="./img/GB.png">
+        <img class="logo der" src="./img/Danone.png">
+      </div>
+
+
+      <div class="preguntas">
+        <div class="pregunta" data-id="0">
+          <img class="logo-100" src="./img/DIJERON.png">
+        </div>
+        <div class="pregunta" data-id="1">
+          <p class="pregunta">Menciona uno de los objetivos del programa</p>
+          <p class="respuesta">1) <span>Consulta de información</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Interacción entre usuarios</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Canje de artículos</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="2">
+          <p class="pregunta">¿Cómo puedes consultar los puntos con los que cuentas?</p>
+          <p class="respuesta">1) <span>En el sitio del programa</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Llamando al CAT</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Enviando un correo a la cuenta del programa</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="3">
+          <p class="pregunta">¿Qué datos necesitas para entrar al sitio del programa?</p>
+          <p class="respuesta">1) <span>ID Usuario/No. Empleado</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Contraseña</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Link del programa</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="4">
+          <p class="pregunta">Menciona una de las nuevas funciones que presenta el rediseño del sitio</p>
+          <p class="respuesta">1) <span>Sección para videos</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Sección de retos y noticias</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Ranking de sector</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="5">
+          <p class="pregunta">¿Cuáles son los pasos para canjear?</p>
+          <p class="respuesta">1) <span>Consultar el catálogo</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Seleccionar el artículo</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Confirmar dirección de entrega</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="6">
+          <p class="pregunta">¿Qué haces si no te llega tu premio?</p>
+          <p class="respuesta">1) <span>Llamo al CAT</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Envío un correo </span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Lo reporto a mi jefe directo</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="7">
+          <p class="pregunta">Menciona 3 beneficios de Danone YoPRO:</p>
+          <p class="respuesta">1) <span>0% azúcar</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Bajo en grasa</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Deslactosado</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="8">
+          <p class="pregunta">Menciona una de las versiones de Danone YoPRO</p>
+          <p class="respuesta">1) <span>Yoghurt</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Licuado lácteo</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Licuado vegetal</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="9">
+          <p class="pregunta">Menciona uno de los beneficios de Silk</p>
+          <p class="respuesta">1) <span>Libre de lactosa</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Sin gluten</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Ayuda a la digestión </span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="10">
+          <p class="pregunta">¿Qué haces si tu artículo llegó en malas condiciones?</p>
+          <p class="respuesta">1) <span>Reportarlo con mi jefe</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Llamar al CAT</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Envío un correo</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="11">
+          <p class="pregunta">Menciona un formato de tienda</p>
+          <p class="respuesta">1) <span>Bodega</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Hiper</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Premium</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="12">
+          <p class="pregunta">Menciona una de las categorías que puedes encontrar en el catálogo de premios</p>
+          <p class="respuesta">1) <span>Hogar</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Certificados</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Tecnología</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="13">
+          <p class="pregunta">Nombra uno de los sabores de Danonino</p>
+          <p class="respuesta">1) <span>Fresa</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Durazno</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Uva</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="14">
+          <p class="pregunta">Menciona una de las presentaciones de Danonino</p>
+          <p class="respuesta">1) <span>Queso</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Bebible</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Para el lunch</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="15">
+          <p class="pregunta">¿Qué haces si se te olvida tu contraseña?</p>
+          <p class="respuesta">1) <span>Llamo al CAT</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Envío un mail a l correo del programa</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Reseteo mi contraseña en el sitio</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="16">
+          <p class="pregunta">Menciona uno de los sabores de Danup</p>
+          <p class="respuesta">1) <span>Fresa</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Durazno</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Piña-Coco</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="17">
+          <p class="pregunta">Indica 3 secciones del sitio</p>
+          <p class="respuesta">1) <span>Mi muro</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Catálogo</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Estado de cuenta</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="18">
+          <p class="pregunta">Menciona 3 lanzamientos recientes</p>
+          <p class="respuesta">1) <span>YoPRO</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Dany Fuego</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Danette Conejito Turin</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="19">
+          <p class="pregunta">Menciona 3 tiendas de cualquier formato donde se vendan productos Danone</p>
+          <p class="respuesta">1) <span>Bodega</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Walmart</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Chedraui </span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+
+        <div class="pregunta" data-id="20">
+          <p class="pregunta">Menciona 3 tipos de materiales para punto de venta</p>
+          <p class="respuesta">1) <span>Cubre hieleras</span><span>****************************************</span><button onclick="acumular(30);" class="open o30"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">2) <span>Globos</span><span>****************************************</span><button onclick="acumular(20);" class="open"><i class="far fa-eye"></i></button></p>
+          <p class="respuesta">3) <span>
+            Copete Bunker</span><span>****************************************</span><button onclick="acumular(10);" class="open"><i class="far fa-eye"></i></button></p>
+        </div>
+        <div class="error">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <i class="fa fa-times" aria-hidden="true"></i>          
+        </div>  
+      </div>
+      <div class="botones">
+        <button onclick="acumrojo();" class="b-rojo"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        <button onclick="iniciar();" class="b-iniciar"><i class="fa fa-play" aria-hidden="true"></i></button>
+        <button onclick="error();" class="b-mal"><i class="fa fa-times" aria-hidden="true"></i></button>
+        <button onclick="acumazul();" class="b-azul"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+      </div>
+      <div class="pts t-acum"><span>0</span></div>
+      <div class="pts t-rojo"><span>0</span></div>
+      <div class="pts t-azul"><span>0</span></div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+      var acumulado = 0;
+      var ptsRojo = 0;
+      var ptsAzul = 0;
+      var myArray = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'];
+      var i,j,k;
+      for (i = myArray.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        k = myArray[i - 1];
+        myArray[i - 1] = myArray[j];
+        myArray[j] = k;
+      }
+      console.log(myArray);
+      var index = 0;
+
+      function launchFullScreen(element) {
+        if(element.requestFullScreen) {
+          element.requestFullScreen();
+        } else if(element.mozRequestFullScreen) {
+          element.mozRequestFullScreen();
+        } else if(element.webkitRequestFullScreen) {
+          element.webkitRequestFullScreen();
+        }
+        document.getElementById("full1").style.display = "none";
+        document.getElementById("full2").style.display = "block";
+      }
+      // Lanza en pantalla completa en navegadores que lo soporten
+      function cancelFullScreen() {
+        if(document.cancelFullScreen) {
+          document.cancelFullScreen();
+        } else if(document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if(document.webkitCancelFullScreen) {
+          document.webkitCancelFullScreen();
+        }
+        document.getElementById("full2").style.display = "none";
+        document.getElementById("full1").style.display = "block";
+      }
+
+
+      function acumular(acum) {
+        acumulado = acumulado + acum;
+        $(".pts.t-acum").html(acumulado);
+        document.getElementById("respuesta").play();
+      }
+      function acumrojo() {
+        ptsRojo = ptsRojo + acumulado;
+        acumulado = 0;
+        $(".pts.t-acum").html(acumulado);
+        $(".pts.t-rojo").html(ptsRojo);
+        $(".open").show();
+        $(".error").removeClass("uno");
+        $(".error").removeClass("dos");
+        $(".error").removeClass("tres");
+        document.getElementById("win").play();
+        $("div.pregunta").css("display","none");
+      }
+      function acumazul() {
+        ptsAzul = ptsAzul + acumulado;
+        acumulado = 0;
+        $(".pts.t-acum").html(acumulado);
+        $(".pts.t-azul").html(ptsAzul);
+
+        $(".open").show();
+        $(".error").removeClass("uno");
+        $(".error").removeClass("dos");
+        $(".error").removeClass("tres");
+        document.getElementById("win").play();
+        $("div.pregunta").css("display","none");
+      }
+      function iniciar() {
+        //Math.floor(Math.random() * (20));
+        if (index > 19){
+          endgame();
+        }
+        else{
+          myArray[index];
+          $("div.pregunta").css("display","none");
+          var data = "div.pregunta[data-id="+ myArray[index] +"]"; 
+          console.log(data);
+          $(data).css("display","block");
+          index= index + 1;
+          document.getElementById("inicio").play();
+        }
+      }
+
+      function error() {
+
+        if($(".error").hasClass("uno")){
+          if($(".error").hasClass("dos")){
+            $(".error").addClass("tres");
+          }
+          else{
+            $(".error").addClass("dos");
+          }
+
+        }
+        else{
+          $(".error").addClass("uno");
+        }
+        document.getElementById("error").play();
+      }
+
+      function endgame() {
+        if (ptsRojo == ptsAzul){
+          var texto = "El juego ha terminado, fue un empate"; 
+          alert(texto);
+
+        }
+        else if(ptsRojo > ptsAzul){
+          var texto = "El juego ha terminado, equipo Rojo ha ganado"; 
+          alert(texto);
+        }
+        else{
+          var texto = "El juego ha terminado, equipo Azul ha ganado"; 
+          alert(texto);
+        }
+      }
+
+
+      $(".open").click(function(){
+        $(this).toggle();
+        $(this).siblings("span").toggle();
+      });
+
+    </script>
+  </body>
+
+
+</html>
