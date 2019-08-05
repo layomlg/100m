@@ -244,3 +244,52 @@ p.pregunta {
   color: #140064;
   background: #fff;
 }
+
+
+
+
+.col-2{
+  width: 100%;
+}
+.col-2 > .izq,
+.col-2 > .der{
+  width: 50%;
+  float: left;
+  display: inline-block;
+}
+.col-2 input{
+  display: inline-block;
+  float: left;
+  margin:10px 0px;
+  padding: 6 10px;
+  border: 0px none;
+  font-size: 16px;
+  color:#ffc92c;
+  background: none;
+  
+}
+.col-2 input:focus{
+	outline:0px;
+}
+.col-2 input:nth-child(1){
+  width: calc(100% - 50px);
+  text-align: left;
+}
+.col-2 input:nth-child(2){
+  width: 30px;
+  text-align: right;
+}
+::-webkit-input-placeholder { /* Edge */
+  color: #ffc92c;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #ffc92c;
+}
+
+::placeholder {
+  color: #ffc92c;
+}
+.fase2{
+  padding-top: 80px;
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es" >
+
+  <head>
+    <meta charset="UTF-8">
+    <title>100 Guerreros Dijeron</title>
+    <link rel="shortcut icon" href="img/favicon.png"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Saira+Extra+Condensed:700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="sonidos">
+      <audio id="inicio">
+        <source src="sounds/inicio.mp3" type="audio/mpeg">
+      </audio>
+      <audio id="respuesta">
+        <source src="sounds/respuesta.mp3" type="audio/mpeg">
+      </audio>
+      <audio id="win">
+        <source src="sounds/win.mp3" type="audio/mpeg">
+      </audio>
+      <audio id="error">
+        <source src="sounds/error.mp3" type="audio/mpeg">
+      </audio>
+
+    </div>
+    <div class="fullscreen">
+      <button id="full1" onclick="launchFullScreen(document.documentElement);"><i class="fas fa-expand-arrows-alt"></i> </button>
+      <button id="full2" onclick="cancelFullScreen();"> <i class="fas fa-expand-arrows-alt"></i> </button>
+    </div>
+
+    <!-- Inicio STANDBY -->
+    <div id="standby" class="container1">
+      <img class="logo-100" src="./img/DIJERON.png">
+    </div>
+    <!-- Fin STANDBY -->
+    <div class="container">
+      <div class="logos">
+        <img class="logo izq" src="./img/GB.png">
+        <img class="logo der" src="./img/Danone.png">
+      </div>
+
+
+      <div class="preguntas fase2">
+        <div class="pregunta" data-id="0" style="display: none">
+          <img class="logo-100" src="./img/DIJERON.png">
+        </div>
+        <div class="col-2">
+          <div class="izq">
+            <div><input placeholder="_ _ _ _ _ _ _ _ _ _"><input placeholder="0"></div>
+            <div><input placeholder="_ _ _ _ _ _ _ _ _ _"><input placeholder="0"></div>
+            <div><input placeholder="_ _ _ _ _ _ _ _ _ _"><input placeholder="0"></div>
+            <div><input placeholder="_ _ _ _ _ _ _ _ _ _"><input placeholder="0"></div>
+            <div><input placeholder="_ _ _ _ _ _ _ _ _ _"><input placeholder="0"></div>
+          </div>
+          <div class="der">
+            <div><input placeholder="_ _ _ _ _ _ _ _ _ _"><input placeholder="0"></div>
+            <div><input placeholder="_ _ _ _ _ _ _ _ _ _"><input placeholder="0"></div>
+            <div><input placeholder="_ _ _ _ _ _ _ _ _ _"><input placeholder="0"></div>
+            <div><input placeholder="_ _ _ _ _ _ _ _ _ _"><input placeholder="0"></div>
+            <div><input placeholder="_ _ _ _ _ _ _ _ _ _"><input placeholder="0"></div>
+          </div>
+
+        </div>
+
+        <div class="error">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <i class="fa fa-times" aria-hidden="true"></i>          
+        </div>  
+      </div>
+      <div class="botones">
+        <button onclick="location.href='index2.html';"><i class="fas fa-step-backward"></i></button>
+        <button onclick="iniciar();" class="b-iniciar"><i class="fa fa-play" aria-hidden="true"></i></button>
+        <button onclick="error();" class="b-mal"><i class="fa fa-times" aria-hidden="true"></i></button>
+      </div>
+      <div class="pts t-acum"><span>0</span></div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+      var acumulado = 0;
+      var ptsRojo = 0;
+      var ptsAzul = 0;
+      var myArray = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'];
+      var i,j,k;
+      for (i = myArray.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        k = myArray[i - 1];
+        myArray[i - 1] = myArray[j];
+        myArray[j] = k;
+      }
+      console.log(myArray);
+      var index = 0;
+
+      function launchFullScreen(element) {
+        if(element.requestFullScreen) {
+          element.requestFullScreen();
+        } else if(element.mozRequestFullScreen) {
+          element.mozRequestFullScreen();
+        } else if(element.webkitRequestFullScreen) {
+          element.webkitRequestFullScreen();
+        }
+        document.getElementById("full1").style.display = "none";
+        document.getElementById("full2").style.display = "block";
+      }
+      // Lanza en pantalla completa en navegadores que lo soporten
+      function cancelFullScreen() {
+        if(document.cancelFullScreen) {
+          document.cancelFullScreen();
+        } else if(document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if(document.webkitCancelFullScreen) {
+          document.webkitCancelFullScreen();
+        }
+        document.getElementById("full2").style.display = "none";
+        document.getElementById("full1").style.display = "block";
+      }
+
+
+      function acumular(acum) {
+        acumulado = acumulado + acum;
+        $(".pts.t-acum").html(acumulado);
+        document.getElementById("respuesta").play();
+      }
+      function acumrojo() {
+        ptsRojo = ptsRojo + acumulado;
+        acumulado = 0;
+        $(".pts.t-acum").html(acumulado);
+        $(".pts.t-rojo").html(ptsRojo);
+        $(".open").show();
+        $(".error").removeClass("uno");
+        $(".error").removeClass("dos");
+        $(".error").removeClass("tres");
+        document.getElementById("win").play();
+        $("div.pregunta").css("display","none");
+      }
+      function acumazul() {
+        ptsAzul = ptsAzul + acumulado;
+        acumulado = 0;
+        $(".pts.t-acum").html(acumulado);
+        $(".pts.t-azul").html(ptsAzul);
+
+        $(".open").show();
+        $(".error").removeClass("uno");
+        $(".error").removeClass("dos");
+        $(".error").removeClass("tres");
+        document.getElementById("win").play();
+        $("div.pregunta").css("display","none");
+      }
+      function iniciar() {
+        //Math.floor(Math.random() * (20));
+        if (index > 19){
+          endgame();
+        }
+        else{
+          myArray[index];
+          $("div.pregunta").css("display","none");
+          var data = "div.pregunta[data-id="+ myArray[index] +"]"; 
+          console.log(data);
+          $(data).css("display","block");
+          index= index + 1;
+          document.getElementById("inicio").play();
+        }
+      }
+
+      function error() {
+
+        if($(".error").hasClass("uno")){
+          if($(".error").hasClass("dos")){
+            $(".error").addClass("tres");
+          }
+          else{
+            $(".error").addClass("dos");
+          }
+
+        }
+        else{
+          $(".error").addClass("uno");
+        }
+        document.getElementById("error").play();
+      }
+
+      function endgame() {
+        if (ptsRojo == ptsAzul){
+          var texto = "El juego ha terminado, fue un empate"; 
+          alert(texto);
+
+        }
+        else if(ptsRojo > ptsAzul){
+          var texto = "El juego ha terminado, equipo Rojo ha ganado"; 
+          alert(texto);
+        }
+        else{
+          var texto = "El juego ha terminado, equipo Azul ha ganado"; 
+          alert(texto);
+        }
+      }
+
+
+      $(".open").click(function(){
+        $(this).toggle();
+        $(this).siblings("span").toggle();
+      });
+      $.fn.nval = function() {
+        return Number(this.val())
+      };
+      $(".col-2 input:nth-child(2)").on("blur",function(){
+        var valor= $(this).nval();
+        console.log(valor);
+        acumulado = acumulado + valor;
+        $(".pts.t-acum").html(acumulado);
+      });
+
+    </script>
+  </body>
+
+
+</html>
